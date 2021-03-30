@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Login from './Login';
-import LoginEatme from './LoginEatme';
-import LoginTest from './LoginTest';
-import PropsExam from './PropsExam'
 import LoginScreen from './LoginScreen'
 import * as Font from 'expo-font';
+import List from './Examples/List'
+import Inputs from './Examples/Inputs'
+import ScrollViewExample from './Examples/ScrollViewExample';
+import SignupScreen from './SignupScreen'
+import LoginScreen2 from './LoginScreen2'
+import SignupScreen2 from './SignupScreen2'
 
 
 export default class App extends Component {
@@ -34,7 +36,8 @@ export default class App extends Component {
 
   render() {
     if(this.state.fontsLoaded){
-      return <LoginScreen/>;
+      //return <LoginScreen2/>;
+      return <SignupScreen2/>;
     } else {
         return null;
     }
