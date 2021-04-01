@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View , Text, StyleSheet} from 'react-native'
 import {SvgXml} from 'react-native-svg'
-import Button from '../LoginScreen2/Button'
+import Button from '../BaiTap/LoginScreen2/Button'
 import Description from './Description'
 import svg3 from './svg3'
 import svgSlide from './svgSlide'

@@ -12,7 +12,7 @@ import SignupScreen2 from './BaiTap/SignupScreen2'
 import OnboardingScreen from './OnboardingScreen'
 import ForgotPasswordScreen from './BaiTap/ForgotPasswordScreen'
 import UseLinearGradient from './BaiTap/UseLinearGradient'
-
+import Weather from './BaiTap/Weather'
 
 export default class App extends Component {
   constructor(props){
@@ -43,7 +43,8 @@ export default class App extends Component {
       //return <SignupScreen/>;
       //return <OnboardingScreen/>
       //return <ForgotPasswordScreen/>
-      return <UseLinearGradient/>;
+      //return <UseLinearGradient/>;
+      return <Weather/>
     } else {
         return null;
     }
