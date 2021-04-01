@@ -6,7 +6,7 @@ export default class Logo extends Component {
     render() {
         return (
             <View style={styles.container}>
-                  <Icon name='home' size='48' color='#01B760'/>
+                  <Icon name='home' size={48} color='#01B760'/>
             </View>
         )
     }

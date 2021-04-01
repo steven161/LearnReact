@@ -7,11 +7,11 @@ import List from './Examples/List'
 import Inputs from './Examples/Inputs'
 import ScrollViewExample from './Examples/ScrollViewExample';
 import SignupScreen from './SignupScreen'
-import LoginScreen2 from './LoginScreen2'
-import SignupScreen2 from './SignupScreen2'
+import LoginScreen2 from './BaiTap/LoginScreen2'
+import SignupScreen2 from './BaiTap/SignupScreen2'
 import OnboardingScreen from './OnboardingScreen'
-import ForgotPasswordScreen from './ForgotPasswordScreen'
-import UseLinearGradient from './UseLinearGradient'
+import ForgotPasswordScreen from './BaiTap/ForgotPasswordScreen'
+import UseLinearGradient from './BaiTap/UseLinearGradient'
 
 
 export default class App extends Component {
@@ -39,11 +39,11 @@ export default class App extends Component {
 
   render() {
     if(this.state.fontsLoaded){
-      //return <LoginScreen2/>;
-      //return <SignupScreen2/>;
+      //return <LoginScreen/>;
+      //return <SignupScreen/>;
       //return <OnboardingScreen/>
-      return <ForgotPasswordScreen/>
-      //return <UseLinearGradient/>;
+      //return <ForgotPasswordScreen/>
+      return <UseLinearGradient/>;
     } else {
         return null;
     }
