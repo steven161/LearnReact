@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, Platform} from 'react-native';
 import LoginScreen from './Eatme/LoginScreen'
 import * as Font from 'expo-font';
 import SignupScreen from './Eatme/SignupScreen'
@@ -13,6 +13,7 @@ import Weather from './BaiTap/Weather'
 import TimeTracking from './BaiTap/TimeTracking'
 import ImageFeed from './BaiTap/ImageFeed'
 import ImageSlider from './BaiTap/ImageSlider'
+import StarAndNumber from './Eatme/components/StarAndNumber';
 
 export default class App extends Component {
   constructor(props){
@@ -39,15 +40,24 @@ export default class App extends Component {
 
   render() {
     if(this.state.fontsLoaded){
-      return <LoginScreen/>;
-      //return <SignupScreen/>;
-      //return <OnboardingScreen/>
-      //return <ForgotPasswordScreen/>
-      //return <UseLinearGradient/>;
-      //return <Weather/>
-      //return <TimeTracking/>
-      //return <ImageFeed/>
-      //return <ImageSlider/>
+      return (
+      <SafeAreaView style={{flex: 1, alignItems: 'center'}}>
+        <View  style={{padding:90, minWidth: 414, minHeight: Platform.OS === 'web' ? 812 : null}}>
+        {/* //return <LoginScreen/>;
+          //return <SignupScreen/>;
+          //return <OnboardingScreen/>
+          //return <ForgotPasswordScreen/>
+          //return <UseLinearGradient/>;
+          //return <Weather/>
+          //return <TimeTracking/>
+          //return <ImageFeed/>
+          //return <ImageSlider/> */}
+           {/* <OnboardingScreen/> */}
+
+           <StarAndNumber number={4.5}/>
+        </View>
+      </SafeAreaView>
+      )
     } else {
         return null;
     }

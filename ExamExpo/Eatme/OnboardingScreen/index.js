@@ -1,38 +1,50 @@
 import React, { Component } from 'react'
-import { View , Text, StyleSheet} from 'react-native'
-import {SvgXml} from 'react-native-svg'
-import Button from './Button'
-import Description from './Description'
-import svg1 from './svg1'
-import svgSlide from './svgSlide'
+import { View , Text, StyleSheet, StatusBar} from 'react-native'
+import Button from '../components/Button';
+import GilroyText from '../components/GilroyText';
+import Screen1 from './Screen1'
+import Screen2 from './Screen2';
+import Screen3 from './Screen3';
+
 
 
 export default class index extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            screenName: 1,
+        };
+    }
+
+    handlePressNext = () => {
+        let s = this.state.screenName;
+        s++;
+        if(s>3) s = 1;
+        this.setState({
+            screenName: s,
+        });
+    };
+
     render() {
+        let CurrentScreen = Screen1;
+        if(this.state.screenName === 2){
+            CurrentScreen = Screen2;
+        }else if(this.state.screenName ===3){
+            CurrentScreen = Screen3;
+        }
+
         return (
-            <View style={styles.container}>
-                <View style={styles.headerContainer}>
-                    <SvgXml xml={svg1}/>
+            <React.Fragment>
+                <StatusBar backgroundColor='rgba(255, 92, 1, 0.2)' barStyle='dark-content'/>
+                <CurrentScreen/>
+                <View style={styles.buttonContainer}>
+                    <GilroyText style={{fontSize:16, color:'#757D85', lineHeight:19}}>Skip</GilroyText>
+                    <Button title='Next' 
+                        onPress = {this.handlePressNext}
+                        style={{backgroundColor:'#FF6C44', width: 168, height: 56}}/>
                 </View>
-
-
-                <View style={styles.bodyContainer}>
-                    <Description 
-                        title="Choose a Favourite Food"
-                        subTitle="When you oder Eat Steet, we’ll hook you up with
-                        exclusive coupon, specials and rewards"
-                    />
-                    <View style={styles.sliderContainer}>
-                        <SvgXml xml={svgSlide}/>
-                    </View>
-                </View>
-
-                <View style={styles.footerContainer}>
-                     <Text style={styles.skipText}>Skip</Text>
-                    <View flex={1}/>
-                    <Button title="Next" color='#FF6C44' flex={1}></Button>
-                </View>
-            </View>
+            </React.Fragment>
         )
     }
 }
@@ -42,31 +54,12 @@ const styles = StyleSheet.create({
         flex: 1,
         //backgroundColor: 'red',
     },
-    headerContainer: {
-        flex:6,
-        //backgroundColor: 'green',
-        alignItems: 'center',
-    },
-    bodyContainer: {
-        flex: 4,
-        //backgroundColor:'blue',
-        alignItems: 'center'
-    },
-    sliderContainer : {
-        //backgroundColor: 'yellow',
-        justifyContent: 'center',
-        flex: 1,
-    },
-    footerContainer: {
-        //backgroundColor:'yellow',
+    buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        margin: 8,
-    },
-    skipText : {
-        fontFamily: 'SVN-Gilroy-Regular',
-        fontSize: 16,
-        color: '#757D85'
+        marginTop: 32,
+        marginHorizontal: 24,
     }
+    
 });
