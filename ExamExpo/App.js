@@ -39,9 +39,9 @@ export default class App extends Component {
 
   render() {
     if(this.state.fontsLoaded){
-      //return <LoginScreen/>;
+      return <LoginScreen/>;
       //return <SignupScreen/>;
-      return <OnboardingScreen/>
+      //return <OnboardingScreen/>
       //return <ForgotPasswordScreen/>
       //return <UseLinearGradient/>;
       //return <Weather/>

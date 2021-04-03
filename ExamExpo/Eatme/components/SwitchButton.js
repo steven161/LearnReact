@@ -1,30 +1,44 @@
-import React, { Component } from 'react'
-import {View, Text, Switch, StyleSheet} from 'react-native'
+import React, { Component } from 'react';
+import { Text, View, Switch, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types'
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection:"row",
-        marginHorizontal:12,
-        alignItems: 'center',
-    },
-    saveMeText: {
-        marginLeft: 8,
-        fontFamily:'SVN-Gilroy-Regular',
-        color:'#898B9A',
-    }
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  saveMeText: {
+    marginLeft: 4,
+    fontFamily: 'SVN-Gilroy-Regular',
+    color: '#898B9A',
+  },
 });
 
-export default class SwitchButton extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Switch trackColor={{ false: "#898B9A", true: "#FF6C44" }}
-                        ios_backgroundColor='#898B9A'
-                        thumbColor="#ffffff"
-                        onValueChange={() => {}}
-                        value={false}/>
-                <Text style={styles.saveMeText}>{this.props.title}</Text>
-            </View>
-        )
-    }
+class SwitchButton extends Component {
+  state = {
+    value: false,
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <Switch
+          trackColor={{ false: '#898B9A', true: '#FF6C44' }}
+          ios_backgroundColor='#898B9A'
+          thumbColor='#ffffff'
+          onValueChange={() => {
+            let v = !this.state.value;
+            this.setState({ value: v });
+          }}
+          value={this.state.value}
+        />
+        <Text style={styles.saveMeText}>{this.props.title}</Text>
+      </View>
+    );
+  }
 }
+
+SwitchButton.propTypes = {
+    title : PropTypes.string.isRequired,
+};
+
+export default SwitchButton;

@@ -1,30 +1,52 @@
-import React, { Component } from 'react'
-import { View , StyleSheet, Text} from 'react-native'
+import React, { Component } from 'react';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection:'row',
-        borderRadius: 8,
-        height: 56,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 12,
-        marginHorizontal: 12,
-    },
-    text: {
-         fontSize: 16,
-         fontFamily: 'SVN-Gilroy-SemiBold',  
-         marginLeft: 8, 
-    }
-})
-export default class Button extends Component {
-    render() {
-        return (
-            <View style={[styles.container, {backgroundColor: this.props.color}]}>
-                {this.props.icon}
-                {this.props.image}
-                <Text style={[styles.text, {color: this.props.titleColor}]}>{this.props.title}</Text>
-            </View>
-        )
-    }
+  loginButton: {
+    flexDirection: 'row',
+    height: 56,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  loginText: {
+    marginLeft: 8,
+    color: 'white',
+    fontSize: 16,
+    fontFamily: 'SVN-Gilroy-SemiBold',
+  },
+});
+
+class Button extends Component {
+  render() {
+    return (
+      <TouchableOpacity style={[styles.loginButton, this.props.style]} onPress={this.props.onPress}>
+        {this.props.icon}
+        {this.props.image}
+        <Text style={[styles.loginText, { color: this.props.titleColor }]}>{this.props.title}</Text>
+      </TouchableOpacity>
+    );
+  }
 }
+
+//Type Checking
+Button.propTypes = {
+    style: PropTypes.object,
+    onPress: PropTypes.func,
+    icon: PropTypes.element,
+    image: PropTypes.element,
+    titleColor: PropTypes.string,
+    title: PropTypes.string.isRequired,
+};
+
+// Default Props
+Button.defaultProps = {
+    titleColor:'white',
+    style: null,
+    icon: null,
+    image: null,
+};
+
+export default Button;

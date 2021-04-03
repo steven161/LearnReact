@@ -1,22 +1,35 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { Component } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
-    container: {
-        marginHorizontal:12,
-    },
-    text: {
-        fontFamily: 'SVN-Gilroy-Regular',
-        color:'#898B9A',
-    }
+  text: {
+    color: '#898B9A',
+  },
 });
 
-export default class GilroyText extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.text}>{this.props.children}</Text>
-            </View>
-        )
-    }
+class GilroyText extends Component {
+  render() {
+    return (
+      <View style={{ flexDirection: this.props.direction }}>
+        <Text style={[styles.text, this.props.style, { fontFamily: 'SVN-Gilroy-' + this.props.fontStyle }]}>{this.props.children}</Text>
+      </View>
+    );
+  }
 }
+
+// Type checking
+GilroyText.propTypes = {
+    direction: PropTypes.oneOf(['row','column']),
+    style: PropTypes.object,
+    fontStyle: PropTypes.oneOf(['Regular','Medium','SemiBold','Bold']),
+    children: PropTypes.element.isRequired,
+};
+
+GilroyText.defaultProps = {
+    direction: 'row',
+    fontStyle: 'Regular'
+};
+
+export default GilroyText;

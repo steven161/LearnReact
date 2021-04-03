@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     container: { 
         flex: 1,
         //backgroundColor: 'green'
+        margin:24,
     },
     logoContainer:{
         flex: 1,
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         flex: 3,
-        backgroundColor:"white"
+        //backgroundColor:"red",
+        marginTop:32,
     },
     footerContainer: {
         flex: 0,
@@ -59,14 +61,14 @@ export default class index extends Component {
 
                 {/* Begin: INPUT */}
                 <View style={styles.inputContainer}>
-                    <Textbox label='Email1' placeholder='Please enter your email' icon='check-circle-outline' ></Textbox>
+                    <Textbox label='Email' placeholder='Please enter your email' icon='check-circle-outline' ></Textbox>
                     <Textbox label='Password' placeholder='Please enter your password' icon='eye-outline' ></Textbox>
                     <View style={{flexDirection:'row', justifyContent:'space-between', alignItems: 'center'}}>
                         <SwitchButton title='Save Me'></SwitchButton>
-                        <GilroyText color='#898B9A'>Forgot password?</GilroyText>
+                        <GilroyText color='#898B9A' fontStyle='Regular'><Text>Forgot password?</Text></GilroyText>
                     </View>
-                    <View height={12}/>
-                    <Button color='#FF6C44' titleColor='white' title='Sign In'/>
+                    <View height={32}/>
+                    <Button style={{backgroundColor:'#FF6C44'}} titleColor='white' title='Sign In'/>
                     <View style={{flexDirection:'row', justifyContent:'center', marginTop: 12,}}>
                         <Text style={{color:'#898B9A',fontSize:16,fontFamily: 'SVN-Gilroy-Medium',}}>Don't have an account?</Text>
                         <View width={12}/>
@@ -79,8 +81,9 @@ export default class index extends Component {
 
                 {/* Begin: FOOTER */}
                 <View style={styles.footerContainer}>
-                    <Button color='#0064C0' titleColor='white' title='Continue With Facebook' icon={<Icon name='logo-facebook' size={18} color='white'/>}/>
-                    <Button color='#F5F5F8' titleColor='#898B9A' title='Continue With Google' image={<Image style={{width:16, height:16}} source={require('../assets/google-icon.png')}/>}/>
+                    <Button style={{backgroundColor:'#0064C0'}} titleColor='white' title='Continue With Facebook' icon={<Icon name='logo-facebook' size={18} color='white'/>}/>
+                    <View height={16}/>
+                    <Button style={{backgroundColor:'#F5F5F8'}} titleColor='#898B9A' title='Continue With Google' image={<Image style={{width:16, height:16}} source={require('../assets/google-icon.png')}/>}/>
                 </View>
                 {/* End: FOOTER */}
 
