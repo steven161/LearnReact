@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
-import Header  from '../LoginScreen/Header'
-import Logo from '../LoginScreen/Logo'
-import Textbox from '../LoginScreen/Textbox'
-import Button from '../LoginScreen/Button'
+import Header  from '../components/Header'
+import Logo from '../components/Logo'
+import Textbox from '../components/Textbox'
+import Button from '../components/Button'
 import {Ionicons as Icon} from '@expo/vector-icons'
 
 export default class index extends Component {

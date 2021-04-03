@@ -1,18 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import LoginScreen from './LoginScreen'
+import LoginScreen from './Eatme/LoginScreen'
 import * as Font from 'expo-font';
-import List from './Examples/List'
-import Inputs from './Examples/Inputs'
-import ScrollViewExample from './Examples/ScrollViewExample';
-import SignupScreen from './SignupScreen'
+import SignupScreen from './Eatme/SignupScreen'
 import LoginScreen2 from './BaiTap/LoginScreen2'
 import SignupScreen2 from './BaiTap/SignupScreen2'
-import OnboardingScreen from './OnboardingScreen'
+import OnboardingScreen from './Eatme/OnboardingScreen'
 import ForgotPasswordScreen from './BaiTap/ForgotPasswordScreen'
 import UseLinearGradient from './BaiTap/UseLinearGradient'
 import Weather from './BaiTap/Weather'
+import TimeTracking from './BaiTap/TimeTracking'
+import ImageFeed from './BaiTap/ImageFeed'
+import ImageSlider from './BaiTap/ImageSlider'
 
 export default class App extends Component {
   constructor(props){
@@ -41,10 +41,13 @@ export default class App extends Component {
     if(this.state.fontsLoaded){
       //return <LoginScreen/>;
       //return <SignupScreen/>;
-      //return <OnboardingScreen/>
+      return <OnboardingScreen/>
       //return <ForgotPasswordScreen/>
       //return <UseLinearGradient/>;
-      return <Weather/>
+      //return <Weather/>
+      //return <TimeTracking/>
+      //return <ImageFeed/>
+      //return <ImageSlider/>
     } else {
         return null;
     }

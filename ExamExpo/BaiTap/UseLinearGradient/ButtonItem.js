@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 24,
     margin: 16,
+    aspectRatio: 1,
   },
   iconContainer: {
     width: 64,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View , Text, StyleSheet} from 'react-native'
 import {SvgXml} from 'react-native-svg'
-import Button from '../BaiTap/LoginScreen2/Button'
+import Button from './Button'
 import Description from './Description'
 import svg1 from './svg1'
 import svgSlide from './svgSlide'
@@ -14,6 +14,7 @@ export default class index extends Component {
                 <View style={styles.headerContainer}>
                     <SvgXml xml={svg1}/>
                 </View>
+
 
                 <View style={styles.bodyContainer}>
                     <Description 
