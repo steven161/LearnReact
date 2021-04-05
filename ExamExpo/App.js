@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, SafeAreaView, Platform} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, Platform, Image} from 'react-native';
 import LoginScreen from './Eatme/LoginScreen'
 import * as Font from 'expo-font';
 import SignupScreen from './Eatme/SignupScreen'
@@ -14,6 +14,14 @@ import TimeTracking from './BaiTap/TimeTracking'
 import ImageFeed from './BaiTap/ImageFeed'
 import ImageSlider from './BaiTap/ImageSlider'
 import StarAndNumber from './Eatme/components/StarAndNumber';
+import Duration from './Eatme/components/Duration'
+import FreeShipping from './Eatme/components/FreeShipping';
+import Sizes from './Eatme/components/Sizes';
+import SmallRestaurant from './Eatme/components/SmallRestaurant';
+import Rating from './Eatme/components/Rating';
+import Quantity from './Eatme/components/Quantity';
+import BuyNow from './Eatme/components/BuyNow';
+import FoodDetails from './Eatme/FoodDetails'
 
 export default class App extends Component {
   constructor(props){
@@ -42,19 +50,22 @@ export default class App extends Component {
     if(this.state.fontsLoaded){
       return (
       <SafeAreaView style={{flex: 1, alignItems: 'center'}}>
-        <View  style={{padding:90, minWidth: 414, minHeight: Platform.OS === 'web' ? 812 : null}}>
-        {/* //return <LoginScreen/>;
-          //return <SignupScreen/>;
-          //return <OnboardingScreen/>
-          //return <ForgotPasswordScreen/>
-          //return <UseLinearGradient/>;
-          //return <Weather/>
-          //return <TimeTracking/>
-          //return <ImageFeed/>
-          //return <ImageSlider/> */}
-           {/* <OnboardingScreen/> */}
+        <View  style={{padding:0, minWidth: 414, minHeight: Platform.OS === 'web' ? 812 : null}}>
+        {/* 
+          <LoginScreen/>;
+          <SignupScreen/>;
+          <OnboardingScreen/>
+          <ForgotPasswordScreen/>
+          <UseLinearGradient/>;
+          <Weather/>
+          <TimeTracking/>
+          <ImageFeed/>
+          <ImageSlider/>
+          <FoodDetails/>
+           */}
+           
+           <UseLinearGradient/>
 
-           <StarAndNumber number={4.5}/>
         </View>
       </SafeAreaView>
       )

@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#1A1B2E",
   },
   headerBlock: {
+    position: "absolute",
+    marginTop: -100,
     width: 320,
     height: 320,
     borderRadius: 60,
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
     height: 100,
     //backgroundColor: 'blue',
     paddingLeft: 24,
-    marginTop: -200,
+    //marginTop: -200,
   },
   title: {
     color: "white",
