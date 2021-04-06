@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
 import { View , Text, StyleSheet} from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
+import PropTypes from 'prop-types'
 
-export default class FreeShipping extends Component {
+class FreeShipping extends Component {
     render() {
         return (
             <View style={[styles.container, this.props.style]}>
                 <FontAwesome name="usd" size={14} color="#111A2C" />
-                <Text style={styles.text}>Free shipping</Text>
+                <Text style={styles.text}>{this.props.shipPrice===0 ? 'Free' : this.props.shipPrice} shipping</Text>
             </View>
         )
     }
 }
+
+FreeShipping.propTypes = {
+    shipPrice: PropTypes.number.isRequired,
+};
+
+FreeShipping.defaultProps = {
+    shipPrice: 0,
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -27,3 +36,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     }
 });
+
+export default FreeShipping;

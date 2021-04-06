@@ -5,7 +5,7 @@ import GilroyText from './GilroyText';
 export default class BuyNow extends Component {
     render() {
         return (
-            <TouchableOpacity style={[styles.container, this.props.style]}>
+            <TouchableOpacity style={[styles.container, this.props.style]} onPress={this.props.onPress}>
                 <GilroyText fontStyle='SemiBold' style={styles.text}>
                     <Text>
                         Buy Now
@@ -13,7 +13,7 @@ export default class BuyNow extends Component {
                 </GilroyText>
                 <GilroyText fontStyle='SemiBold' style={styles.text}>
                     <Text>
-                        {this.props.price}
+                        $ {this.props.total}
                     </Text>
                 </GilroyText>
             </TouchableOpacity>

@@ -7,7 +7,7 @@ class Sizes extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedIndex : 1,
+            selectedIndex : -1,
         };
     }
 
@@ -15,7 +15,7 @@ class Sizes extends Component {
      
         return (
             <View style={[styles.container, this.props.style]}>
-                <GilroyText style={styles.text} fontStyle='SemiBold'>Sizes:</GilroyText>
+                <GilroyText style={styles.text} fontStyle='SemiBold'><Text>Sizes:</Text></GilroyText>
                 {
                     this.props.items.map((item,i) => {
                         return (
@@ -24,10 +24,11 @@ class Sizes extends Component {
                                 style={this.state.selectedIndex === i ? styles.selectedBox : styles.box}
                                 onPress={()=>{
                                     this.setState({selectedIndex: i});
+                                    this.props.onPress(i);
                                 }}
                             >
                                 <GilroyText style={this.state.selectedIndex === i ? styles.selectedItemText : styles.itemText} fontStyle='SemiBold'>
-                                    <Text>{item}</Text>
+                                    <Text>{item.name}</Text>
                                 </GilroyText>
                             </TouchableOpacity>
                         );

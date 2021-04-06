@@ -11,9 +11,40 @@ import Quantity from "../components/Quantity";
 import BuyNow from "../components/BuyNow";
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import FoodCalories from "./FoodCalories";
+import Rating10 from "../components/Rating10";
 
+const sizes = [
+  {
+    name: '12"',
+    price: 12.99
+  },
+  {
+    name: '14"',
+    price: 14.99
+  },
+  {
+    name: '16"',
+    price: 15.99
+  },
+  {
+    name: '18"',
+    price: 18.99
+  },
+];
 export default class index extends Component {
+  state ={ 
+    size: null,
+    quantity: 1,
+  };
+
+  getTotal = () => {
+    let t = this.state.size !== null ? this.state.quantity * sizes[this.state.size].price : 0;
+    return parseFloat(t.toFixed(2));
+  };
+
   render() {
+
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
@@ -29,18 +60,9 @@ export default class index extends Component {
           </View>
         </View>
 
-        <View height={24}/>
-        <View style={styles.foodImageDetail}>
-            <View style={styles.foodImageDetailTopBar}>
-                <Text>🔥 78 Calories</Text>
-                <View flex={1}></View>
-                <AntDesign name="heart" size={16} color="#FF6C44" />
-            </View>
-          <Image source={require("../assets/monan1.png")} />
-        </View>
+        <FoodCalories calories={78} style={styles.marginStyle}/>
 
-        <View height={24}/>
-        <View style={styles.foodDescription}>
+        <View style={styles.marginStyle}>
           <GilroyText
             style={{ color: "#111A2C", fontSize: 24 }}
             fontStyle="SemiBold"
@@ -56,36 +78,37 @@ export default class index extends Component {
             </Text>
           </GilroyText>
         </View>
-        <View height={24}/>
-        <View flexDirection="row" style={{marginLeft:24}}>
+        
+        <View flexDirection="row" style={styles.marginStyle}>
           <StarAndNumber number={4.5}/>
-          <Duration title="30 Mins"  style={{marginLeft:24}}/>
-          <FreeShipping  style={{marginLeft:24}}/>
+          <Duration duration={30}  style={{marginLeft:24}}/>
+          <FreeShipping style={{marginLeft:24}}/>
         </View>
 
-        <View height={24}/>
-        <Sizes items={['12"', '14"', '16"', '18"']}  style={{marginLeft:24}}/>
+        <Sizes items={sizes}  style={styles.marginStyle} onPress={(i) => {
+          this.setState({size: i});
+        }}/>
 
-        <View height={24}/>
         <View style={styles.horizonLIne}></View>
 
-        <View height={24}/>
-        <View flexDirection="row" alignItems="center" style={{marginLeft:24}} justifyContent='space-between'>
+        <View flexDirection="row" alignItems="center" style={styles.marginStyle} justifyContent='space-between'>
           <SmallRestaurant
             company="Toyota Food"
-            distance="1.2 Km from you"
-            imagePath={require("../assets/Logo.png")}
+            distance="1.2"
           />
-          <Rating number={4}  style={{marginHorizontal:24}}/>
+          <Rating10 number={3.6}/>
         </View>
 
-        <View height={24}/>
         <View style={styles.horizonLIne}></View>
 
-        <View height={24}/>
-        <View flexDirection="row" alignItems="center" style={{marginLeft:24}}>
-          <Quantity />
-          <BuyNow price="$15.99" style={{marginLeft:24}}/>
+        <View style={[styles.bottomGroup,styles.marginStyle]}>
+          <Quantity onPress={(q) => {
+            this.setState({quantity: q});
+          }}/>
+          <BuyNow total={this.getTotal()} onPress={() => {
+              console.log("BuyNow " + JSON.stringify(this.state));
+              
+          }}/>
         </View>
       </View>
     );
@@ -120,27 +143,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  foodImageDetail: {
-    //flex:1,
-    backgroundColor: "#F5F5F8",
-    borderRadius: 16,
-    justifyContent: "center",
-    alignItems: "center",
-    marginHorizontal: 24,
-  },
-  foodDescription: {
-    marginHorizontal: 24,
-  },
   horizonLIne: {
     height: 0.5,
     backgroundColor: "#898B9A",
+    marginTop:24,
   },
-  foodImageDetailTopBar: {
-    //width: '70%',
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: 16,
-    //backgroundColor: 'red',
+  marginStyle: {
+    margin:24,
+    marginBottom: 0,
   },
+  bottomGroup: {
+    flexDirection:"row",
+   justifyContent:"space-between",
+     alignItems:"center" ,
+  },
+  
 });

@@ -17,11 +17,11 @@ export default function Avatar({size, backgroundColor, initials}) {
     )
 }
 
-Avatar.PropTypes = {
-    initials: PropTypes.string.isRequired,
-    size: PropTypes.number.isRequired,
-    background: ColorPropType.isRequired,
-};
+// Avatar.PropTypes = {
+//     initials: PropTypes.string.isRequired,
+//     size: PropTypes.number.isRequired,
+//     background: ColorPropType.isRequired,
+// };
 
 
 

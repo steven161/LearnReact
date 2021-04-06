@@ -5,12 +5,13 @@ import PropTypes from 'prop-types'
 
 export default class Card extends Component {
 
-    static propTypes = {
-        fullname : PropTypes.string.isRequired,
-        image: Image.propTypes.source.isRequired,
-        linkText: PropTypes.string.isRequired,
-        onPressLinkText: PropTypes.func.isRequired,
-    };
+
+    // static propTypes = {
+    //     fullname : PropTypes.string.isRequired,
+    //     image: Image.propTypes.source.isRequired,
+    //     linkText: PropTypes.string.isRequired,
+    //     onPressLinkText: PropTypes.func.isRequired,
+    // };
 
     static defaultProps ={
         linkText:'',

@@ -42,13 +42,14 @@ const styles = StyleSheet.create({
   }
 });
 
-TimerButton.propTypes = {
-    color: ColorPropType.isRequire,
-    title: PropTypes.string.isRequired,
-    small: PropTypes.bool,
-    onPress: PropTypes.func.isRequired,
-};
 
-TimerButton.defaultProps = {
-  small: false,
-};
+// TimerButton.propTypes = {
+//     color: ColorPropType.isRequire,
+//     title: PropTypes.string.isRequired,
+//     small: PropTypes.bool,
+//     onPress: PropTypes.func.isRequired,
+// };
+
+// TimerButton.defaultProps = {
+//   small: false,
+// };

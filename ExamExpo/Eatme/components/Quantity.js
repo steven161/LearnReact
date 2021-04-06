@@ -7,30 +7,35 @@ export default class Quantity extends Component {
     constructor(props){
         super(props);
         this.state = {
-            quantity: 15
+            quantity: 1,
         };
     }
 
     handlePressMinus = () => {
-        let s = this.state.quantity;
+        if(this.state.quantity == 1) 
+            return;
+
+        let s = this.state.quantity - 1;
         this.setState({
-            quantity: s - 1,
+            quantity: s,
         });
+        this.props.onPress(s);
     };
 
     handlePressPlus = () => {
-        let s = this.state.quantity;
+        let s = this.state.quantity + 1;
         this.setState({
-            quantity: s + 1,
+            quantity: s,
         });
+        this.props.onPress(s);
     };
 
     render() {
         return (
             <View style={[styles.container, this.props.style]}>
-                 <Entypo name="minus" size={24} color="#898B9A" onPress={this.handlePressMinus}/>
+                <TouchableOpacity onPress={this.handlePressMinus}><Text style={styles.textMinus}>-</Text></TouchableOpacity>
                  <GilroyText style={styles.quantity} fontStyle='SemiBold'><Text>{this.state.quantity}</Text></GilroyText>
-                 <Entypo name="plus" size={24} color="#FF6C44"  onPress={this.handlePressPlus}/>
+                 <TouchableOpacity onPress={this.handlePressPlus}><Text style={styles.textPlus}>+</Text></TouchableOpacity>
             </View>
         )
     }
@@ -42,6 +47,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         height: 56,
+        width:120,
         backgroundColor: '#F5F5F8',
         borderRadius: 8,
         paddingHorizontal:16,
@@ -51,4 +57,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginHorizontal:16,
     },
+    textMinus: {
+        color:"#898B9A",
+        fontSize: 24,
+        fontWeight: "600",
+    },
+    textPlus: {
+        color:"#FF6C44",
+        fontSize: 24,
+        fontWeight: "600",
+    }
 });

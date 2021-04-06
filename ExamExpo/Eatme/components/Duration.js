@@ -8,14 +8,14 @@ class Duration extends Component {
     return (
       <View style={[styles.container, this.props.style]}>
         <AntDesign name="clockcircleo" size={14} color="#111A2C"/>
-        <Text style={styles.text}>{this.props.title}</Text>
+        <Text style={styles.text}>{this.props.duration} Mins</Text>
       </View>
     );
   }
 }
 
 Duration.propTypes = {
-    title: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({
