@@ -22,6 +22,7 @@ import Rating from './Eatme/components/Rating';
 import Quantity from './Eatme/components/Quantity';
 import BuyNow from './Eatme/components/BuyNow';
 import FoodDetails from './Eatme/FoodDetails'
+import Menu from './BaiTap/Menu'
 
 export default class App extends Component {
   constructor(props){
@@ -62,9 +63,10 @@ export default class App extends Component {
           <ImageFeed/>
           <ImageSlider/>
           <FoodDetails/>
+           <Menu/>
            */}
            
-           <FoodDetails/>
+           <TimeTracking/>
 
         </View>
       </SafeAreaView>

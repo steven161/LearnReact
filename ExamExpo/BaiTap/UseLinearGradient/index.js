@@ -1,22 +1,16 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+
 import ButtonItem from "./ButtonItem";
+import Footer from "./Footer";
+import Header from "./Header";
 
 export default class index extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <LinearGradient
-          colors={["#FA729F", "#FA5D92", "#FE4A87"]}
-          style={styles.headerBlock}
-        ></LinearGradient>
-        <View style={styles.header}>
-          <Text style={styles.title}>Classify Transaction</Text>
-          <Text style={styles.subTitle}>Classify this transaction into a</Text>
-          <Text style={styles.subTitle}>particular category</Text>
-        </View>
-
+      
+        <Header/>
         <View style={styles.listBlock}>
           <View style={styles.itemRow}>
             <ButtonItem
@@ -67,6 +61,7 @@ export default class index extends Component {
             />
           </View>
         </View>
+        <Footer />
       </View>
     );
   }
@@ -79,35 +74,14 @@ const styles = StyleSheet.create({
     //alignItems: "center",
     backgroundColor: "#1A1B2E",
   },
-  headerBlock: {
-    position: "absolute",
-    marginTop: -100,
-    width: 320,
-    height: 320,
-    borderRadius: 60,
-    transform: [{ rotateX: "0deg" }, { rotateZ: "-40deg" }],
-  },
-  header: {
-    height: 100,
-    //backgroundColor: 'blue',
-    paddingLeft: 24,
-    //marginTop: -200,
-  },
-  title: {
-    color: "white",
-    fontSize: 30,
-    marginBottom: 8,
-  },
-  subTitle: {
-    color: "white",
-    fontSize: 18,
-    marginTop: 8,
-  },
+  
   listBlock: {
     flex: 1,
     //backgroundColor: "green",
+    justifyContent: "flex-end",
   },
   itemRow: {
     flexDirection: "row",
+    justifyContent: "space-evenly",
   },
 });

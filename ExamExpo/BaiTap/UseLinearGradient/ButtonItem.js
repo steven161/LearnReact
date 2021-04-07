@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { Ionicons as Icon } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+
+const W = Dimensions.get('window').width;
 
 export default class ButtonItem extends Component {
   render() {
     return (
       <View style={styles.container}>
         <LinearGradient
-          colors={[this.props.color1, this.props.color2, this.props.color]}
+          start={{ x: 0.0, y: 0.25 }} end={{ x: 0.5, y: 1.0 }} locations={[0, 0.75]}
+          colors={[this.props.color1, this.props.color]}
           style={styles.iconContainer}
         >
           <Icon name={this.props.icon} size={32} color="white" />
@@ -23,7 +26,8 @@ export default class ButtonItem extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: W/2 - 40,
+    height: W/2/ - 30, 
     backgroundColor: "#272B48",
     borderRadius: 16,
     alignItems: "center",
@@ -39,8 +43,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
     marginTop: 24,
-    fontWeight: 'bold'
+    fontWeight: '700'
   },
 });
