@@ -23,6 +23,9 @@ import Quantity from './Eatme/components/Quantity';
 import BuyNow from './Eatme/components/BuyNow';
 import FoodDetails from './Eatme/FoodDetails'
 import Menu from './BaiTap/Menu'
+import MemoryGame from './BaiTap/MemoryGame'
+import HandlingTextInput from './BaiTap/HandlingTextInput'
+import LifeCycle from './BaiTap/LifeCycle';
 
 export default class App extends Component {
   constructor(props){
@@ -66,7 +69,9 @@ export default class App extends Component {
            <Menu/>
            */}
            
-           <TimeTracking/>
+           {/* <HandlingTextInput/> */}
+           {/* <LifeCycle/> */}
+           <MemoryGame/>
 
         </View>
       </SafeAreaView>

@@ -12,7 +12,7 @@ class Rating10 extends Component {
                 {
                     array.map((item, index) => {
                         return (
-                            <FontAwesome name="star-half" size={16} 
+                            <FontAwesome key={index} name="star-half" size={16} 
                             style={[index%2 ? styles.flipX: '', index < (this.props.number*2) ? styles.selectColor : styles.unSelectColor]}/>
                         );
                     })
