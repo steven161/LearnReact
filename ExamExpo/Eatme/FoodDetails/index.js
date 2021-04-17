@@ -60,7 +60,7 @@ export default class index extends Component {
           </View>
         </View>
 
-        <FoodCalories calories={78} style={styles.marginStyle}/>
+        <FoodCalories calories={78} style={[styles.marginStyle,{flex: 1}]}/>
 
         <View style={styles.marginStyle}>
           <GilroyText
@@ -94,7 +94,7 @@ export default class index extends Component {
         <View flexDirection="row" alignItems="center" style={styles.marginStyle} justifyContent='space-between'>
           <SmallRestaurant
             company="Toyota Food"
-            distance="1.2"
+            distance={1.2}
           />
           <Rating10 number={3.6}/>
         </View>

@@ -4,6 +4,7 @@ import { Ionicons as Icon } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
 const W = Dimensions.get('window').width;
+const H = Dimensions.get('window').height;
 
 export default class ButtonItem extends Component {
   render() {
@@ -27,7 +28,7 @@ export default class ButtonItem extends Component {
 const styles = StyleSheet.create({
   container: {
     width: W/2 - 40,
-    height: W/2/ - 30, 
+    height: W/2 - 30, 
     backgroundColor: "#272B48",
     borderRadius: 16,
     alignItems: "center",

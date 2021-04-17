@@ -134,7 +134,7 @@ export default class index extends Component {
   renderCards(cards) {
     return cards.map((card, index) => {
       return (
-        <View>
+        <View key={card.id}>
           <Card
             key={card.id}
             src={card.src}

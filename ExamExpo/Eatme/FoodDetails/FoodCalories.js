@@ -28,7 +28,7 @@ export default class FoodCalories extends Component {
               this.setState({isFavourite: fav});
           }}/>
         </View>
-        <Image source={require("../assets/monan1.png")} />
+        <Image source={require("../assets/monan1.png")} style={{flex:1, resizeMode: 'contain'}}/>
       </View>
     );
   }

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#111A2C',
     fontFamily: 'SVN-Gilroy-Bold',
+    textAlign: 'center',
   },
 
   subTitleText: {
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#525C67',
     fontFamily: 'SVN-Gilroy-Medium',
+    textAlign: 'center',
   },
 });
  

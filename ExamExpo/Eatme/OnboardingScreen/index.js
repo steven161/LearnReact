@@ -39,7 +39,7 @@ export default class index extends Component {
                 <StatusBar backgroundColor='rgba(255, 92, 1, 0.2)' barStyle='dark-content'/>
                 <CurrentScreen/>
                 <View style={styles.buttonContainer}>
-                    <GilroyText style={{fontSize:16, color:'#757D85', lineHeight:19}}>Skip</GilroyText>
+                    <GilroyText style={{fontSize:16, color:'#757D85', lineHeight:19}}><Text>Skip</Text></GilroyText>
                     <Button title='Next' 
                         onPress = {this.handlePressNext}
                         style={{backgroundColor:'#FF6C44', width: 168, height: 56}}/>

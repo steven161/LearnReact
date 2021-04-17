@@ -107,7 +107,7 @@ export default class index extends Component {
           <Text style={styles.title}>Timers</Text>
         </View>
         <KeyboardAvoidingView
-          behavior="padding"
+          behavior= {(Platform.OS === 'ios')? "padding" : null}
           style={styles.timerListContainer}
         >
           <ScrollView style={styles.timerList}>

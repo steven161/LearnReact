@@ -1,31 +1,50 @@
-import React, { Component } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import {
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+  Alert,
+} from "react-native";
+import PropTypes from "prop-types";
 
 const styles = StyleSheet.create({
   loginButton: {
-    flexDirection: 'row',
+    flexDirection: "row",
     height: 56,
     borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   loginText: {
     marginLeft: 8,
-    color: 'white',
+    color: "white",
     fontSize: 16,
-    fontFamily: 'SVN-Gilroy-SemiBold',
+    fontFamily: "SVN-Gilroy-SemiBold",
   },
 });
 
 class Button extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: this.props.loading,
+    };
+  }
+
   render() {
     return (
-      <TouchableOpacity style={[styles.loginButton, this.props.style]} onPress={this.props.onPress}>
+      <TouchableOpacity
+        style={[styles.loginButton, this.props.style]}
+        onPress={ this.props.onPress}
+      >
         {this.props.icon}
         {this.props.image}
-        <Text style={[styles.loginText, { color: this.props.titleColor }]}>{this.props.title}</Text>
+        {this.state.loading && <ActivityIndicator />}
+        <Text style={[styles.loginText, { color: this.props.titleColor }]}>
+          {this.props.title}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -33,20 +52,21 @@ class Button extends Component {
 
 //Type Checking
 Button.propTypes = {
-    style: PropTypes.object,
-    onPress: PropTypes.func,
-    icon: PropTypes.element,
-    image: PropTypes.element,
-    titleColor: PropTypes.string,
-    title: PropTypes.string.isRequired,
+  style: PropTypes.object,
+  onPress: PropTypes.func,
+  icon: PropTypes.element,
+  image: PropTypes.element,
+  titleColor: PropTypes.string,
+  loading: PropTypes.bool,
+  title: PropTypes.string.isRequired,
 };
 
 // Default Props
 Button.defaultProps = {
-    titleColor:'white',
-    style: null,
-    icon: null,
-    image: null,
+  titleColor: "white",
+  style: null,
+  icon: null,
+  image: null,
 };
 
 export default Button;

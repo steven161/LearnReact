@@ -1,38 +1,8 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import React, { Component } from 'react'
+import { Text, StyleSheet, View, TextInput } from 'react-native'
+import PropTypes from 'prop-types';
+
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
-import PropTypes from 'prop-types'
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 16,
-  },
-
-  labelText: {
-    fontSize: 14,
-    fontFamily: 'SVN-Gilroy-Medium',
-    color: '#898B9A',
-  },
-
-  placeholderText: {
-    fontSize: 14,
-    fontFamily: 'SVN-Gilroy-Medium',
-    color: '#898B9A',
-  },
-
-  icon: { color: '#898B9A' },
-
-  inputContainer: {
-    height: 56,
-    borderRadius: 12,
-    backgroundColor: '#F5F5F8',
-    paddingHorizontal: 24,
-    marginTop: 9,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-});
 
 class TextBox extends Component {
   render() {
@@ -40,18 +10,55 @@ class TextBox extends Component {
       <View style={styles.container}>
         <Text style={styles.labelText}>{this.props.label}</Text>
         <View style={styles.inputContainer}>
-          <Text style={styles.placeholderText}>{this.props.placeholder}</Text>
-          <Icon style={styles.icon} name={this.props.icon} size={24} />
+            <TextInput style={styles.textInput}{...this.props} />
+            <Icon style={[
+              styles.icon,
+              this.props.isValid !== undefined && { color: this.props.isValid === true ? '#27AE60' : '#FF1717'}
+            ]}
+            name={this.props.icon}
+            size={24}
+            onPress={this.props.onPressIcon}
+            />
         </View>
       </View>
-    );
+    )
   }
 }
 
-TextBox.propTypes= {
-    label: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    icon: PropTypes.string,
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 16,
+  },
+  labelText: {
+    fontSize: 14,
+    fontFamily: 'SVN-Gilroy-Medium',
+    color: '#898B9A',
+  },
+  icon: {
+    color: '#898B9A'
+  },
+  inputContainer: {
+    height: 56,
+    borderRadius: 12,
+    //backgroundColor: '#ffffff',
+    backgroundColor: '#F5F5F8',
+    paddingHorizontal: 24,
+    marginTop: 9,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textInput: {
+    flex: 1,
+    height: '100%',
+    color: '#111A2C'
+  }
+})
+
+
+TextBox.propTypes = {
+  icon: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default TextBox;
